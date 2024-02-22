@@ -28,7 +28,6 @@ public class PatientBookAppointPanel extends javax.swing.JPanel {
         heading = new javax.swing.JLabel();
         doctorlabel = new javax.swing.JLabel();
         dateInput = new javax.swing.JComboBox<>();
-        calender = new com.toedter.calendar.JCalendar();
         calenderLabel = new javax.swing.JLabel();
         bookBtn = new javax.swing.JButton();
 
@@ -55,11 +54,9 @@ public class PatientBookAppointPanel extends javax.swing.JPanel {
                         .addGap(242, 242, 242)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(calenderLabel)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(dateInput, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(doctorlabel)
-                                .addComponent(calender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(bookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(dateInput, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(doctorlabel)
+                            .addComponent(bookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(256, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -73,9 +70,7 @@ public class PatientBookAppointPanel extends javax.swing.JPanel {
                 .addComponent(dateInput, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addComponent(calenderLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(calender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(30, 30, 30)
                 .addComponent(bookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(32, Short.MAX_VALUE))
         );
@@ -84,7 +79,6 @@ public class PatientBookAppointPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bookBtn;
-    private com.toedter.calendar.JCalendar calender;
     private javax.swing.JLabel calenderLabel;
     private javax.swing.JComboBox<String> dateInput;
     private javax.swing.JLabel doctorlabel;
