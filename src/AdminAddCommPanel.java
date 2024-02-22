@@ -2,17 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
+import DataPackage.community;
+import DataPackage.communityDataset;
 
 /**
  *
  * @author hanee
  */
 public class AdminAddCommPanel extends javax.swing.JPanel {
+    
+    private AdminManageDataPanel manageDataPanel;
 
     /**
      * Creates new form AdminAddCommPanel
      */
-    public AdminAddCommPanel() {
+    public AdminAddCommPanel(AdminManageDataPanel manageDataPanel) {
+        this.manageDataPanel = manageDataPanel;
         initComponents();
     }
 
@@ -41,6 +46,11 @@ public class AdminAddCommPanel extends javax.swing.JPanel {
         cityDropDown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "City 1", "City 2", "City 3", "City 4" }));
 
         addBtn.setText("Add Community");
+        addBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -79,6 +89,23 @@ public class AdminAddCommPanel extends javax.swing.JPanel {
                 .addContainerGap(65, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+        // TODO add your handling code here:
+        String name = commNameInput.getText();
+        String selectedDropDownItem = cityDropDown.getSelectedItem().toString();
+        
+        System.out.println("Name: " + name + ", City: " + selectedDropDownItem);
+        
+        manageDataPanel.populateCommunity(name, selectedDropDownItem);
+        
+        commNameInput.setText("");
+    cityDropDown.setSelectedIndex(0);
+//        
+//        community community = new community(name,selectedDropDownItem);
+//        community.setName(name);
+//        community.setCity(selectedDropDownItem);
+    }//GEN-LAST:event_addBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

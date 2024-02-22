@@ -2,12 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
+import DataPackage.community;
+import DataPackage.communityDataset;
 /**
  *
  * @author hanee
  */
 public class AdminLanding extends javax.swing.JFrame {
+    
+    private AdminManageDataPanel adminManageDataPanel = new AdminManageDataPanel();
 
     /**
      * Creates new form ANother
@@ -111,9 +114,10 @@ public class AdminLanding extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addCommBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCommBtnActionPerformed
+        AdminManageDataPanel adminManageDataPanel = new AdminManageDataPanel();
         // TODO add your handling code here:
 
-        AdminAddCommPanel aacp = new AdminAddCommPanel();
+        AdminAddCommPanel aacp = new AdminAddCommPanel(adminManageDataPanel);
 
         splitPane.setBottomComponent(aacp);
     }//GEN-LAST:event_addCommBtnActionPerformed
@@ -128,11 +132,13 @@ public class AdminLanding extends javax.swing.JFrame {
     }//GEN-LAST:event_addDocBtnActionPerformed
 
     private void manageDataBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageDataBtnActionPerformed
+
+//        community community;
         // TODO add your handling code here:
         
         AdminManageDataPanel amdp = new AdminManageDataPanel();
         
-        splitPane.setBottomComponent(amdp);
+        splitPane.setBottomComponent(adminManageDataPanel);
     }//GEN-LAST:event_manageDataBtnActionPerformed
 
     /**
