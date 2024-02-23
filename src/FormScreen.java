@@ -27,7 +27,6 @@ public class FormScreen extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         topPane = new javax.swing.JPanel();
-        registerButton = new javax.swing.JButton();
         loginAdminBtn = new javax.swing.JButton();
         loginPatientBtn = new javax.swing.JButton();
         loginDoctorBtn = new javax.swing.JButton();
@@ -36,13 +35,6 @@ public class FormScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
-
-        registerButton.setText("Register");
-        registerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerButtonActionPerformed(evt);
-            }
-        });
 
         loginAdminBtn.setText("Login As Admin");
         loginAdminBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -70,26 +62,23 @@ public class FormScreen extends javax.swing.JFrame {
         topPaneLayout.setHorizontalGroup(
             topPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPaneLayout.createSequentialGroup()
-                .addContainerGap(90, Short.MAX_VALUE)
-                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addContainerGap(157, Short.MAX_VALUE)
                 .addComponent(loginAdminBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(loginPatientBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(loginDoctorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(88, 88, 88))
+                .addGap(159, 159, 159))
         );
         topPaneLayout.setVerticalGroup(
             topPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(topPaneLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPaneLayout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(topPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(loginDoctorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(loginPatientBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(loginAdminBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                    .addComponent(loginAdminBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         splitPane.setTopComponent(topPane);
@@ -105,7 +94,7 @@ public class FormScreen extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane)
+            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
         );
 
         pack();
@@ -136,14 +125,6 @@ public class FormScreen extends javax.swing.JFrame {
         splitPane.setBottomComponent(plp);
         
     }//GEN-LAST:event_loginPatientBtnActionPerformed
-
-    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        // TODO add your handling code here:
-        
-        RegisterPanel rp = new RegisterPanel(FormScreen.this);
-        
-        splitPane.setBottomComponent(rp);
-    }//GEN-LAST:event_registerButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,7 +169,6 @@ public class FormScreen extends javax.swing.JFrame {
     private javax.swing.JButton loginAdminBtn;
     private javax.swing.JButton loginDoctorBtn;
     private javax.swing.JButton loginPatientBtn;
-    private javax.swing.JButton registerButton;
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JPanel topPane;
     // End of variables declaration//GEN-END:variables

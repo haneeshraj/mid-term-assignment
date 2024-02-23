@@ -1,3 +1,6 @@
+
+import javax.swing.table.DefaultTableModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
@@ -14,6 +17,7 @@ public class PatientEncounterHistoryPanel extends javax.swing.JPanel {
      */
     public PatientEncounterHistoryPanel() {
         initComponents();
+        initalHistory();
     }
 
     /**
@@ -26,29 +30,62 @@ public class PatientEncounterHistoryPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        table = new javax.swing.JTable();
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("Previous Encounters");
+
+        table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "Appointment Date", "Diagnosis", "Body Temperature", "Heart Rate", "Blood Pressure"
+            }
+        ));
+        jScrollPane1.setViewportView(table);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(549, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(290, 290, 290)
                 .addComponent(jLabel1)
-                .addGap(114, 114, 114))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel1)
-                .addContainerGap(323, Short.MAX_VALUE))
+                .addGap(60, 60, 60)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    
+     private void populatePatientEncounterDetails(PatientsEncountered pe) {
+
+        String data[] = {pe.getName(), pe.getDate(), pe.getDiagnosis(), pe.getBodyTemp(), pe.getHeartRate(), pe.getBloodPressure()};
+
+        DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+
+        tableModel.addRow(data);
+
+    }
+    
+      private void initalHistory() {
+        PatientsEncountered pe1 = new PatientsEncountered("Doctor 1", "Fri Feb 13 17:09:18 EST 2024", "99", "123", "110/80", "Cancer");
+        populatePatientEncounterDetails(pe1);
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 }

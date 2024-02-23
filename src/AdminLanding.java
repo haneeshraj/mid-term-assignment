@@ -10,13 +10,16 @@ import DataPackage.communityDataset;
  */
 public class AdminLanding extends javax.swing.JFrame {
     
-    private AdminManageDataPanel adminManageDataPanel = new AdminManageDataPanel();
 
     /**
      * Creates new form ANother
      */
+    
+    
+    
     public AdminLanding() {
         initComponents();
+        
     }
 
     /**
@@ -30,21 +33,14 @@ public class AdminLanding extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         topPane = new javax.swing.JPanel();
-        addCommBtn = new javax.swing.JButton();
         addDocBtn = new javax.swing.JButton();
-        manageDataBtn = new javax.swing.JButton();
+        addHospBtn = new javax.swing.JButton();
+        logOutButton = new javax.swing.JButton();
         bottomPane = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         splitPane.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
-
-        addCommBtn.setText("Add Community");
-        addCommBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addCommBtnActionPerformed(evt);
-            }
-        });
 
         addDocBtn.setText("Add Doctor");
         addDocBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -53,10 +49,17 @@ public class AdminLanding extends javax.swing.JFrame {
             }
         });
 
-        manageDataBtn.setText("Manage Data");
-        manageDataBtn.addActionListener(new java.awt.event.ActionListener() {
+        addHospBtn.setText("Add Hospital");
+        addHospBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                manageDataBtnActionPerformed(evt);
+                addHospBtnActionPerformed(evt);
+            }
+        });
+
+        logOutButton.setText("Log Out");
+        logOutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logOutButtonActionPerformed(evt);
             }
         });
 
@@ -64,23 +67,23 @@ public class AdminLanding extends javax.swing.JFrame {
         topPane.setLayout(topPaneLayout);
         topPaneLayout.setHorizontalGroup(
             topPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPaneLayout.createSequentialGroup()
-                .addContainerGap(154, Short.MAX_VALUE)
-                .addComponent(addCommBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+            .addGroup(topPaneLayout.createSequentialGroup()
+                .addGap(153, 153, 153)
+                .addComponent(addHospBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addDocBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(manageDataBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(137, 137, 137))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                .addComponent(logOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
         topPaneLayout.setVerticalGroup(
             topPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPaneLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(topPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addCommBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addDocBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageDataBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addHospBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
@@ -113,15 +116,6 @@ public class AdminLanding extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addCommBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCommBtnActionPerformed
-        AdminManageDataPanel adminManageDataPanel = new AdminManageDataPanel();
-        // TODO add your handling code here:
-
-        AdminAddCommPanel aacp = new AdminAddCommPanel(adminManageDataPanel);
-
-        splitPane.setBottomComponent(aacp);
-    }//GEN-LAST:event_addCommBtnActionPerformed
-
     private void addDocBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addDocBtnActionPerformed
         // TODO add your handling code here:
 
@@ -131,15 +125,26 @@ public class AdminLanding extends javax.swing.JFrame {
 
     }//GEN-LAST:event_addDocBtnActionPerformed
 
-    private void manageDataBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageDataBtnActionPerformed
-
-//        community community;
+    private void addHospBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addHospBtnActionPerformed
         // TODO add your handling code here:
         
-        AdminManageDataPanel amdp = new AdminManageDataPanel();
+        AdminAddHospPanel aahp = new AdminAddHospPanel();
+
+        splitPane.setBottomComponent(aahp);
         
-        splitPane.setBottomComponent(adminManageDataPanel);
-    }//GEN-LAST:event_manageDataBtnActionPerformed
+    }//GEN-LAST:event_addHospBtnActionPerformed
+
+    private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
+        // TODO add your handling code here:
+        
+        FormScreen fs = new FormScreen();
+        
+        this.setVisible(false);
+        fs.setVisible(true);
+        
+        
+        
+    }//GEN-LAST:event_logOutButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,10 +185,10 @@ public class AdminLanding extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addCommBtn;
     private javax.swing.JButton addDocBtn;
+    private javax.swing.JButton addHospBtn;
     private javax.swing.JPanel bottomPane;
-    private javax.swing.JButton manageDataBtn;
+    private javax.swing.JButton logOutButton;
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JPanel topPane;
     // End of variables declaration//GEN-END:variables

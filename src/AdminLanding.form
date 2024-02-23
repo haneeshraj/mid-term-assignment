@@ -50,14 +50,14 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="154" max="32767" attributes="0"/>
-                      <Component id="addCommBtn" min="-2" pref="128" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
+                      <Component id="addHospBtn" min="-2" pref="124" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="addDocBtn" min="-2" pref="124" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="manageDataBtn" min="-2" pref="121" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
+                      <EmptySpace pref="141" max="32767" attributes="0"/>
+                      <Component id="logOutButton" min="-2" pref="119" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -66,9 +66,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="addCommBtn" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                           <Component id="addDocBtn" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                          <Component id="manageDataBtn" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="addHospBtn" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="logOutButton" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="28" max="32767" attributes="0"/>
                   </Group>
@@ -76,14 +76,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="addCommBtn">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Add Community"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addCommBtnActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="addDocBtn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Add Doctor"/>
@@ -92,12 +84,20 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addDocBtnActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="manageDataBtn">
+            <Component class="javax.swing.JButton" name="addHospBtn">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Manage Data"/>
+                <Property name="text" type="java.lang.String" value="Add Hospital"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="manageDataBtnActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addHospBtnActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="logOutButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Log Out"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logOutButtonActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

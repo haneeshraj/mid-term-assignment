@@ -12,6 +12,9 @@ public class PatientLanding extends javax.swing.JFrame {
     /**
      * Creates new form PatientLanding
      */
+    
+    System rootDataObj;
+    
     public PatientLanding() {
         initComponents();
     }
@@ -29,6 +32,7 @@ public class PatientLanding extends javax.swing.JFrame {
         topPane = new javax.swing.JPanel();
         bookAppointBtn = new javax.swing.JButton();
         encounterHistBtn = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         bottomPane = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -50,16 +54,25 @@ public class PatientLanding extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Log out");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout topPaneLayout = new javax.swing.GroupLayout(topPane);
         topPane.setLayout(topPaneLayout);
         topPaneLayout.setHorizontalGroup(
             topPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPaneLayout.createSequentialGroup()
-                .addGap(148, 148, 148)
+                .addGap(78, 78, 78)
                 .addComponent(bookAppointBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(104, 104, 104)
+                .addGap(41, 41, 41)
                 .addComponent(encounterHistBtn)
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57))
         );
         topPaneLayout.setVerticalGroup(
             topPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -67,7 +80,8 @@ public class PatientLanding extends javax.swing.JFrame {
                 .addContainerGap(27, Short.MAX_VALUE)
                 .addGroup(topPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bookAppointBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(encounterHistBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(encounterHistBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25))
         );
 
@@ -103,7 +117,7 @@ public class PatientLanding extends javax.swing.JFrame {
     private void bookAppointBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookAppointBtnActionPerformed
         // TODO add your handling code here:
         
-        PatientBookAppointPanel pbap = new PatientBookAppointPanel();
+        PatientBookAppointPanel pbap = new PatientBookAppointPanel(rootDataObj);
         
         splitPane.setBottomComponent(pbap);
     }//GEN-LAST:event_bookAppointBtnActionPerformed
@@ -115,6 +129,16 @@ public class PatientLanding extends javax.swing.JFrame {
         
         splitPane.setBottomComponent(peh);
     }//GEN-LAST:event_encounterHistBtnActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+          FormScreen fs = new FormScreen();
+        
+        this.setVisible(false);
+        fs.setVisible(true);
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,6 +179,7 @@ public class PatientLanding extends javax.swing.JFrame {
     private javax.swing.JButton bookAppointBtn;
     private javax.swing.JPanel bottomPane;
     private javax.swing.JButton encounterHistBtn;
+    private javax.swing.JButton jButton1;
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JPanel topPane;
     // End of variables declaration//GEN-END:variables

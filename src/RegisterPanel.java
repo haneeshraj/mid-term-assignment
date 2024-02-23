@@ -10,6 +10,10 @@ import javax.swing.JOptionPane;
  *
  * @author hanee
  */
+
+import DataPackage.Patient;
+import java.util.List;
+
 public class RegisterPanel extends javax.swing.JPanel {
 
     /**
@@ -41,10 +45,24 @@ public class RegisterPanel extends javax.swing.JPanel {
         cPassLabel = new javax.swing.JLabel();
         cPassInput = new javax.swing.JTextField();
         registerBtn = new javax.swing.JButton();
+        ageLabel = new javax.swing.JLabel();
+        ageInput = new javax.swing.JTextField();
+        nameLabel = new javax.swing.JLabel();
+        nameInput = new javax.swing.JTextField();
+        cityLabel = new javax.swing.JLabel();
+        cityDropdown = new javax.swing.JComboBox<>();
+        communityLabel = new javax.swing.JLabel();
+        communityDropdown = new javax.swing.JComboBox<>();
 
         heading.setText("Register as Patient");
 
         emailLabel.setText("Email");
+
+        emailInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailInputActionPerformed(evt);
+            }
+        });
 
         passLabel.setText("Password");
 
@@ -57,68 +75,132 @@ public class RegisterPanel extends javax.swing.JPanel {
             }
         });
 
+        ageLabel.setText("Age");
+
+        nameLabel.setText("Name");
+
+        cityLabel.setText("City");
+
+        cityDropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toronto", "Ottawa", "Waterloo", "Vancouver" }));
+
+        communityLabel.setText("Community");
+
+        communityDropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Brampton", "Vaughan", "Finch", " " }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(281, 281, 281)
-                        .addComponent(heading))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(cPassInput, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
-                                .addComponent(cPassLabel))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(registerBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(passInput, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
-                                .addComponent(passLabel)
-                                .addComponent(emailInput)
-                                .addComponent(emailLabel)))))
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(emailLabel)
+                    .addComponent(passInput)
+                    .addComponent(passLabel)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ageInput, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                            .addComponent(ageLabel))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cPassInput, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                            .addComponent(cPassLabel)))
+                    .addComponent(emailInput, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(communityLabel)
+                    .addComponent(cityLabel)
+                    .addComponent(nameInput)
+                    .addComponent(nameLabel)
+                    .addComponent(cityDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(communityDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(287, 287, 287)
+                .addComponent(heading)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(34, 34, 34)
                 .addComponent(heading)
-                .addGap(29, 29, 29)
-                .addComponent(emailLabel)
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(emailLabel)
+                    .addComponent(nameLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(emailInput, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(emailInput, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                    .addComponent(nameInput))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passLabel)
+                    .addComponent(cityLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passInput, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addComponent(cPassLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cPassInput, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(passInput, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cPassLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cPassInput, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(ageLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ageInput, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(cityDropdown)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(communityLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(communityDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(39, 39, 39))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
         // TODO add your handling code here:
-
+        
+        
+        
+        String name = nameInput.getText();
+        String age = ageInput.getText();
+        String pass = passInput.getText();
+        String cPass = cPassInput.getText();
+        String email = emailInput.getText();
+        String comm = communityDropdown.getSelectedItem().toString();
+        String city = cityDropdown.getSelectedItem().toString();
+        
+        Patient patient = new Patient(name, email, pass, city, comm, age);
+        
         JOptionPane.showMessageDialog(this,
     "You have been registered as a patient! Please head to the login screen to login!",
     "Registration Successfull",
     JOptionPane.PLAIN_MESSAGE);
     }//GEN-LAST:event_registerBtnActionPerformed
 
+    private void emailInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailInputActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ageInput;
+    private javax.swing.JLabel ageLabel;
     private javax.swing.JTextField cPassInput;
     private javax.swing.JLabel cPassLabel;
+    private javax.swing.JComboBox<String> cityDropdown;
+    private javax.swing.JLabel cityLabel;
+    private javax.swing.JComboBox<String> communityDropdown;
+    private javax.swing.JLabel communityLabel;
     private javax.swing.JTextField emailInput;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JLabel heading;
+    private javax.swing.JTextField nameInput;
+    private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField passInput;
     private javax.swing.JLabel passLabel;
     private javax.swing.JButton registerBtn;

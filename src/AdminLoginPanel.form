@@ -29,7 +29,7 @@
                           <Component id="passwordLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="emailInput" max="32767" attributes="0"/>
                           <Component id="emailLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="passworrdInput" alignment="0" max="32767" attributes="0"/>
+                          <Component id="passwordInput" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -49,7 +49,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="passwordLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="passworrdInput" min="-2" pref="38" max="-2" attributes="0"/>
+              <Component id="passwordInput" min="-2" pref="38" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="loginBtn" min="-2" pref="44" max="-2" attributes="0"/>
               <EmptySpace pref="91" max="32767" attributes="0"/>
@@ -75,7 +75,7 @@
         <Property name="text" type="java.lang.String" value="Password"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="passworrdInput">
+    <Component class="javax.swing.JPasswordField" name="passwordInput">
     </Component>
     <Component class="javax.swing.JButton" name="loginBtn">
       <Properties>

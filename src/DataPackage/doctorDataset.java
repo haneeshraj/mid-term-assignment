@@ -4,7 +4,6 @@
  */
 package DataPackage;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,20 +11,20 @@ import java.util.List;
  * @author jalan
  */
 public class doctorDataset {
-     private List<doctor> doctors;
+//     private List<Doctor> Doctors;
 
     public doctorDataset() {
-        doctors = new ArrayList<>();
-        // Add sample data
-        doctors.add(new doctor("Community A", "City X", "Age 30"));
-        doctors.add(new doctor("Community B", "City Y", "Age 32"));
-        doctors.add(new doctor("Community C", "City Z", "Age 33"));
-        // Add more communities as needed
+//        doctors = new ArrayList<>();
+//        // Add sample data
+//        doctors.add(new Doctor("Community A", "City X", "Age 30"));
+//        doctors.add(new Doctor("Community B", "City Y", "Age 32"));
+//        doctors.add(new Doctor("Community C", "City Z", "Age 33"));
+//        // Add more communities as needed
     }
 
     // Getter for the list of communities
-    public List<doctor> getDoctors() {
-        return doctors;
-    }
+//    public List<Doctor> getDoctors() {
+//        return doctors;
+//    }
     
 }

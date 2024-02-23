@@ -29,6 +29,7 @@ public class DoctorLanding extends javax.swing.JFrame {
         topPane = new javax.swing.JPanel();
         patientEncountBtn = new javax.swing.JButton();
         upcomingAppointBtn = new javax.swing.JButton();
+        logOutBtn = new javax.swing.JButton();
         bottomPane = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,6 +50,13 @@ public class DoctorLanding extends javax.swing.JFrame {
             }
         });
 
+        logOutBtn.setText("Log out");
+        logOutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logOutBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout topPaneLayout = new javax.swing.GroupLayout(topPane);
         topPane.setLayout(topPaneLayout);
         topPaneLayout.setHorizontalGroup(
@@ -56,9 +64,11 @@ public class DoctorLanding extends javax.swing.JFrame {
             .addGroup(topPaneLayout.createSequentialGroup()
                 .addGap(93, 93, 93)
                 .addComponent(patientEncountBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
+                .addGap(49, 49, 49)
                 .addComponent(upcomingAppointBtn)
-                .addGap(133, 133, 133))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addComponent(logOutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
         );
         topPaneLayout.setVerticalGroup(
             topPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -66,7 +76,8 @@ public class DoctorLanding extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(topPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(patientEncountBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(upcomingAppointBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(upcomingAppointBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logOutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
@@ -118,6 +129,16 @@ public class DoctorLanding extends javax.swing.JFrame {
         splitPane.setBottomComponent(duap);
     }//GEN-LAST:event_upcomingAppointBtnActionPerformed
 
+    private void logOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutBtnActionPerformed
+        // TODO add your handling code here:
+          FormScreen fs = new FormScreen();
+        
+        this.setVisible(false);
+        fs.setVisible(true);
+        
+        
+    }//GEN-LAST:event_logOutBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -155,6 +176,7 @@ public class DoctorLanding extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bottomPane;
+    private javax.swing.JButton logOutBtn;
     private javax.swing.JButton patientEncountBtn;
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JPanel topPane;

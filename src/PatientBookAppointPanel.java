@@ -7,13 +7,23 @@
  *
  * @author hanee
  */
+
+import java.util.Calendar;
+import java.util.Map;
+import java.util.HashMap;
+import javax.swing.JOptionPane;
+
 public class PatientBookAppointPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form PatientBookAppointPanel
      */
-    public PatientBookAppointPanel() {
+    
+   
+    
+    public PatientBookAppointPanel(System rootDataObj) {
         initComponents();
+        
     }
 
     /**
@@ -30,6 +40,11 @@ public class PatientBookAppointPanel extends javax.swing.JPanel {
         dateInput = new javax.swing.JComboBox<>();
         calenderLabel = new javax.swing.JLabel();
         bookBtn = new javax.swing.JButton();
+        jCalendar1 = new com.toedter.calendar.JCalendar();
+        doctorlabel1 = new javax.swing.JLabel();
+        cityDropdown = new javax.swing.JComboBox<>();
+        doctorlabel2 = new javax.swing.JLabel();
+        commDropdown = new javax.swing.JComboBox<>();
 
         heading.setText("Book and Appointment");
 
@@ -40,48 +55,120 @@ public class PatientBookAppointPanel extends javax.swing.JPanel {
         calenderLabel.setText("Choose a date of appointment");
 
         bookBtn.setText("Book Appointment");
+        bookBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bookBtnActionPerformed(evt);
+            }
+        });
+
+        doctorlabel1.setText("City");
+
+        cityDropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Toronto", "Ottawa" }));
+        cityDropdown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cityDropdownActionPerformed(evt);
+            }
+        });
+
+        doctorlabel2.setText("Community");
+
+        commDropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Old Town", "North York", "East York", "Downtown" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cityDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(doctorlabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dateInput, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(doctorlabel))
+                .addGap(68, 68, 68))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(278, 278, 278)
-                        .addComponent(heading))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(242, 242, 242)
+                        .addGap(247, 247, 247)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(calenderLabel)
-                            .addComponent(dateInput, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(doctorlabel)
-                            .addComponent(bookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(256, Short.MAX_VALUE))
+                            .addComponent(bookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(calenderLabel)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(278, 278, 278)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(commDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(doctorlabel2)
+                            .addComponent(heading)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(168, 168, 168)
+                        .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(251, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(heading)
-                .addGap(18, 18, 18)
-                .addComponent(doctorlabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(dateInput, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(doctorlabel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(dateInput, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(doctorlabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(cityDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(doctorlabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(commDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(29, 29, 29)
                 .addComponent(calenderLabel)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
+                .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(bookBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bookBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookBtnActionPerformed
+//         TODO add your handling code here:
+        String city = cityDropdown.getSelectedItem().toString();
+        String community = commDropdown.getSelectedItem().toString();
+        String doctor = dateInput.getSelectedItem().toString();
+         Calendar selectedCalendar = jCalendar1.getCalendar();
+        
+         String msg= """
+                     Successfully booked appointment
+                     Your Details are as follows
+                     city:""" + city + "\n"
+                 + "community:" + community + "\n"
+                 + "doctor:" + doctor + "\n" + "date: " + selectedCalendar.getTime().toString();
+         JOptionPane.showMessageDialog(null,msg,"Appointment",JOptionPane.INFORMATION_MESSAGE);
+        
+        
+    }//GEN-LAST:event_bookBtnActionPerformed
+
+    private void cityDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityDropdownActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cityDropdownActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bookBtn;
     private javax.swing.JLabel calenderLabel;
+    private javax.swing.JComboBox<String> cityDropdown;
+    private javax.swing.JComboBox<String> commDropdown;
     private javax.swing.JComboBox<String> dateInput;
     private javax.swing.JLabel doctorlabel;
+    private javax.swing.JLabel doctorlabel1;
+    private javax.swing.JLabel doctorlabel2;
     private javax.swing.JLabel heading;
+    private com.toedter.calendar.JCalendar jCalendar1;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,8 +1,10 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-
 /**
  *
  * @author hanee
@@ -12,13 +14,12 @@ public class DoctorLoginPanel extends javax.swing.JPanel {
     /**
      * Creates new form DoctorLoginPanel
      */
-    
-        private FormScreen formScreen;
-    
+    private FormScreen formScreen;
+
     public DoctorLoginPanel(FormScreen formScreen) {
         initComponents();
-        
-        this.formScreen  = formScreen;
+
+        this.formScreen = formScreen;
     }
 
     /**
@@ -90,12 +91,45 @@ public class DoctorLoginPanel extends javax.swing.JPanel {
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         // TODO add your handling code here:
-        
-        DoctorLanding dl = new DoctorLanding();
-        
-        dl.setVisible(true);
-        formScreen.setVisible(false);
-        
+
+        AuthenticationDoctor ad = new AuthenticationDoctor();
+        ad.initCred();
+
+        if (emailInput.getText().isEmpty() && passwordInput.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Please enter email and password",
+                    "validation Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        } else if (emailInput.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Please enter email",
+                    "validation Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+
+        } else if (passwordInput.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "Please enter password",
+                    "validation Error",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+
+        }
+
+        if (ad.authenticate(emailInput.getText(), passwordInput.getText())) {
+            DoctorLanding dl = new DoctorLanding();
+
+            dl.setVisible(true);
+            formScreen.setVisible(false);
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "Invalid Credentials, try doctor1@email.com and 123456",
+                    "validation Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
+
     }//GEN-LAST:event_loginBtnActionPerformed
 
 

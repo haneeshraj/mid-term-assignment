@@ -1,10 +1,10 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-
-
-
 /**
  *
  * @author hanee
@@ -14,12 +14,11 @@ public class AdminLoginPanel extends javax.swing.JPanel {
     /**
      * Creates new form AdminLoginPanel
      */
-    
     private FormScreen formScreen;
-    
+
     public AdminLoginPanel(FormScreen formScreen) {
         initComponents();
-        
+
         this.formScreen = formScreen;
     }
 
@@ -36,7 +35,7 @@ public class AdminLoginPanel extends javax.swing.JPanel {
         emailLabel = new javax.swing.JLabel();
         emailInput = new javax.swing.JTextField();
         passwordLabel = new javax.swing.JLabel();
-        passworrdInput = new javax.swing.JPasswordField();
+        passwordInput = new javax.swing.JPasswordField();
         loginBtn = new javax.swing.JButton();
 
         heading.setText("Login As Admin");
@@ -68,7 +67,7 @@ public class AdminLoginPanel extends javax.swing.JPanel {
                             .addComponent(passwordLabel)
                             .addComponent(emailInput)
                             .addComponent(emailLabel)
-                            .addComponent(passworrdInput))))
+                            .addComponent(passwordInput))))
                 .addContainerGap(226, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -83,7 +82,7 @@ public class AdminLoginPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(passwordLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passworrdInput, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passwordInput, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(91, Short.MAX_VALUE))
@@ -92,11 +91,25 @@ public class AdminLoginPanel extends javax.swing.JPanel {
 
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         // TODO add your handling code here:
-        
-        AdminLanding al = new AdminLanding();
-        formScreen.setVisible(false);
-        al.setVisible(true);     
-        
+
+        if ("admin@example.com".equals(emailInput.getText())) {
+            if ("123456".equals(passwordInput.getText())) {
+                AdminLanding al = new AdminLanding();
+                formScreen.setVisible(false);
+                al.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this,
+                    "Invalid password, use 123456",
+                    "validation Error",
+                    JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "Invalid Email, use admin@example.com",
+                    "validation Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_loginBtnActionPerformed
 
 
@@ -105,7 +118,7 @@ public class AdminLoginPanel extends javax.swing.JPanel {
     private javax.swing.JLabel emailLabel;
     private javax.swing.JLabel heading;
     private javax.swing.JButton loginBtn;
+    private javax.swing.JPasswordField passwordInput;
     private javax.swing.JLabel passwordLabel;
-    private javax.swing.JPasswordField passworrdInput;
     // End of variables declaration//GEN-END:variables
 }

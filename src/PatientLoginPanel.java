@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
@@ -12,13 +15,12 @@ public class PatientLoginPanel extends javax.swing.JPanel {
     /**
      * Creates new form PatientLoginPanel
      */
-    
-     private FormScreen formScreen;
-    
+    private FormScreen formScreen;
+
     public PatientLoginPanel(FormScreen formScreen) {
         initComponents();
-        
-           this.formScreen  = formScreen;
+
+        this.formScreen = formScreen;
     }
 
     /**
@@ -91,10 +93,20 @@ public class PatientLoginPanel extends javax.swing.JPanel {
     private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
         // TODO add your handling code here:
 
-       PatientLanding pl = new PatientLanding();
-       
-        pl.setVisible(true);
-        formScreen.setVisible(false);
+        AuthenticationPatient ap = new AuthenticationPatient();
+        ap.initCred();
+
+        if (ap.authenticate(emailInput.getText(), passwordInput.getText())) {
+            PatientLanding pl = new PatientLanding();
+            pl.setVisible(true);
+            formScreen.setVisible(false);
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "Invalid Credentials, try patient1@email.com and 123456",
+                    "validation Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
 
     }//GEN-LAST:event_loginBtnActionPerformed
 
