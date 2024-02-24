@@ -233,7 +233,7 @@ public class AdminAddDocPanel extends javax.swing.JPanel {
             return;
         }
 
-        Doctor d = new Doctor(name, age, address, city, comm, email, hosp);
+        Doctor d = new Doctor(name, age, email , city, comm, address, hosp);
 
         populateDoctorDetails(d);
 
